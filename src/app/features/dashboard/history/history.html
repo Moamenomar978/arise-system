@@ -1,0 +1,28 @@
+<h2 class="page-title">Quest History</h2>
+
+<div class="system-panel">
+  @if (entries().length) {
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>Quest</th>
+          <th>XP</th>
+          <th>Gold</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (e of entries(); track e.id) {
+          <tr>
+            <td>{{ e.questTitle }}</td>
+            <td class="text-glow-blue">+{{ e.xpEarned }}</td>
+            <td class="text-glow-gold">+{{ e.goldEarned }}</td>
+            <td class="text-dim">{{ e.completedAt | date: 'medium' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p class="text-dim">No quests completed yet. Get started on the Daily Quests page.</p>
+  }
+</div>

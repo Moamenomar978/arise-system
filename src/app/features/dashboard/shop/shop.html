@@ -1,0 +1,45 @@
+@if (player(); as p) {
+  <div class="shop-header">
+    <div>
+      <h2 class="page-title">Reward Store</h2>
+      <p class="text-dim">Spend your gold on rewards you define for yourself.</p>
+    </div>
+    <div class="shop-gold text-glow-gold font-display">💰 {{ p.gold }}</div>
+  </div>
+
+  <button class="btn-system" (click)="showForm.set(!showForm())">
+    {{ showForm() ? 'Cancel' : '+ New Reward' }}
+  </button>
+
+  @if (showForm()) {
+    <div class="system-panel shop-form">
+      <label class="text-dim">Reward name</label>
+      <input class="form-control-system" [(ngModel)]="newName" placeholder="e.g. Movie night">
+      <label class="text-dim">Description</label>
+      <input class="form-control-system" [(ngModel)]="newDescription" placeholder="Optional">
+      <label class="text-dim">Cost (gold)</label>
+      <input class="form-control-system" type="number" [(ngModel)]="newCost" min="1">
+      <button class="btn-system btn-system-gold" (click)="addItem()">Save Reward</button>
+    </div>
+  }
+
+  <div class="shop-grid">
+    @for (item of items(); track item.id) {
+      <div class="system-panel shop-item">
+        <div class="shop-item-name font-display">{{ item.name }}</div>
+        @if (item.description) {
+          <div class="text-dim shop-item-desc">{{ item.description }}</div>
+        }
+        <div class="shop-item-footer">
+          <span class="text-glow-gold font-display">{{ item.cost }} Gold</span>
+          <div class="shop-item-actions">
+            <button class="btn-system btn-system-gold" [disabled]="p.gold < item.cost" (click)="redeem(item.id)">Redeem</button>
+            <button class="btn-system btn-system-danger" (click)="remove(item.id)">✕</button>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <p class="text-dim">No rewards yet — add one above to start spending your gold on something worthwhile.</p>
+    }
+  </div>
+}

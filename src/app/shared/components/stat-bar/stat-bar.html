@@ -1,0 +1,17 @@
+<div class="stat-bar">
+  @if (label()) {
+    <div class="stat-bar-header">
+      <span class="stat-bar-label">{{ label() }}</span>
+      @if (showNumbers()) {
+        <span class="stat-bar-numbers">{{ value() }} / {{ max() }}</span>
+      }
+    </div>
+  }
+  <div class="sys-bar-track">
+    <div class="sys-bar-fill"
+         [class.sys-bar-fill--xp]="variant() === 'xp'"
+         [class.sys-bar-fill--hp]="variant() === 'hp'"
+         [style.width.%]="percent()">
+    </div>
+  </div>
+</div>

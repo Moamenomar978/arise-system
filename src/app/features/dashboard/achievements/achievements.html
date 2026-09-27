@@ -1,0 +1,22 @@
+@if (player(); as p) {
+  <h2 class="page-title">Achievements</h2>
+  <p class="text-dim">{{ p.titles.length }} custom titles earned. Milestones below unlock automatically as you progress.</p>
+
+  <div class="achievements-grid">
+    @for (m of milestones; track m.title) {
+      <div class="system-panel achievement-card" [class.achievement-card--earned]="earned(m)">
+        <div class="achievement-icon">{{ earned(m) ? '🏆' : '🔒' }}</div>
+        <div class="achievement-title font-display">{{ m.title }}</div>
+        <div class="achievement-desc text-dim">{{ m.description }}</div>
+      </div>
+    }
+
+    @for (title of p.titles; track title) {
+      <div class="system-panel achievement-card achievement-card--earned">
+        <div class="achievement-icon">🎖️</div>
+        <div class="achievement-title font-display">{{ title }}</div>
+        <div class="achievement-desc text-dim">Awarded by the System</div>
+      </div>
+    }
+  </div>
+}

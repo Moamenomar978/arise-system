@@ -1,0 +1,46 @@
+@if (announcementService.latest(3); as announcements) {
+  @if (announcements.length) {
+    <div class="announcements-banner">
+      @for (a of announcements; track a.id) {
+        <div class="system-panel announcement-banner-item">[SYSTEM] {{ a.message }}</div>
+      }
+    </div>
+  }
+}
+
+@if (player(); as p) {
+  <h2 class="page-title">Hunter Status</h2>
+
+  <div class="overview-grid">
+    <div class="system-panel overview-main">
+      <div class="overview-main-top">
+        <app-xp-ring [level]="p.level" [currentXP]="p.currentXP" [xpToNextLevel]="p.xpToNextLevel" />
+
+        <div class="overview-identity">
+          <div class="overview-hunter-name font-display">{{ user()?.hunterName }}</div>
+          <app-rank-badge [rank]="p.rank" size="lg" />
+          <div class="overview-streak text-dim">🔥 {{ p.streak }} day streak</div>
+        </div>
+      </div>
+
+      <app-stat-bar label="Experience" [value]="p.currentXP" [max]="p.xpToNextLevel" variant="xp" />
+      <app-stat-bar label="HP" [value]="p.hp" [max]="p.maxHp" variant="hp" />
+
+      <div class="overview-meta">
+        <div><span class="text-dim">Gold</span><br><span class="text-glow-gold font-display">{{ p.gold }}</span></div>
+        <div><span class="text-dim">Stat Points</span><br><span class="text-glow-blue font-display">{{ p.availableStatPoints }}</span></div>
+        <div><span class="text-dim">Titles</span><br><span class="font-display">{{ p.titles.length }}</span></div>
+      </div>
+    </div>
+
+    <div class="system-panel">
+      <div class="system-title">Stats</div>
+      <div class="stats-list">
+        @for (key of statKeys; track key) {
+          <app-stat-bar [label]="statLabels[key]" [value]="p.stats[key]" [max]="maxStatValue()" [showNumbers]="true" />
+        }
+      </div>
+      <p class="text-dim stats-hint">Earn stat points by leveling up, then allocate them on the Stat Allocation page.</p>
+    </div>
+  </div>
+}

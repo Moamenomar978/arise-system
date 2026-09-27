@@ -1,0 +1,15 @@
+.page-title { margin-bottom: 1.25rem; }
+.table-wrap { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; white-space: nowrap; }
+.admin-table th {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--sys-text-dim);
+  border-bottom: 1px solid var(--sys-border);
+  padding-bottom: 0.5rem;
+}
+.admin-table td { padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--sys-border); }
+.admin-actions { display: flex; gap: 0.4rem; }
+.row-banned { opacity: 0.5; }

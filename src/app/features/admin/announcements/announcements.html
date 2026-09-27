@@ -1,0 +1,21 @@
+<h2 class="page-title">Announcements</h2>
+<p class="text-dim">Broadcast a [SYSTEM] message that every hunter will see on their dashboard.</p>
+
+<div class="system-panel announce-form">
+  <textarea class="form-control-system" rows="3" [(ngModel)]="message" placeholder="e.g. New Event Available! Double XP weekend starts now."></textarea>
+  <button class="btn-system" (click)="post()">Broadcast</button>
+</div>
+
+<div class="announce-list">
+  @for (a of announcementService.announcements(); track a.id) {
+    <div class="system-panel announce-item">
+      <div class="announce-text">[SYSTEM] {{ a.message }}</div>
+      <div class="announce-meta text-dim">
+        {{ a.createdAt | date: 'medium' }}
+        <button class="btn-system btn-system-danger" (click)="remove(a.id)">Remove</button>
+      </div>
+    </div>
+  } @empty {
+    <p class="text-dim">No announcements yet.</p>
+  }
+</div>

@@ -1,0 +1,9 @@
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: var(--sys-text-dim);
+}
+.stat-bar-label { text-transform: uppercase; letter-spacing: 1px; }
+.stat-bar-numbers { font-family: var(--font-display); color: var(--sys-text); }

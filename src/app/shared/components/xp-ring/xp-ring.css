@@ -1,0 +1,21 @@
+.xp-ring { position: relative; width: 120px; height: 120px; }
+svg { transform: rotate(-90deg); }
+.xp-ring-track { fill: none; stroke: #06090f; stroke-width: 8; }
+.xp-ring-fill {
+  fill: none;
+  stroke: var(--sys-blue);
+  stroke-width: 8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--sys-blue));
+  transition: stroke-dashoffset 0.5s ease;
+}
+.xp-ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.xp-ring-level { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: #eafcff; }
+.xp-ring-tag { font-size: 0.65rem; letter-spacing: 2px; color: var(--sys-text-dim); }

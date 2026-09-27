@@ -1,0 +1,19 @@
+.quest-card {
+  background: var(--sys-bg-panel-2);
+  border: 1px solid var(--sys-border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.15s ease;
+}
+.quest-card:hover { box-shadow: 0 0 12px rgba(0, 212, 255, 0.15); }
+.quest-card--completed { opacity: 0.55; }
+
+.quest-card-top { display: flex; justify-content: space-between; align-items: center; }
+.quest-card-category { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sys-text-dim); }
+.quest-card-title { font-family: var(--font-display); font-size: 1rem; }
+.quest-card-desc { font-size: 0.85rem; }
+.quest-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
+.quest-card-rewards { display: flex; gap: 0.75rem; font-size: 0.8rem; font-family: var(--font-display); }

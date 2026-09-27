@@ -1,0 +1,8 @@
+.page-title { margin-bottom: 0.25rem; }
+.stat-panel { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.stat-row { display: grid; grid-template-columns: 120px 1fr 40px auto; align-items: center; gap: 1rem; }
+.stat-row-label { font-size: 0.9rem; color: var(--sys-text-dim); }
+.stat-row-value { text-align: right; }
+@media (max-width: 600px) {
+  .stat-row { grid-template-columns: 90px 1fr 30px auto; gap: 0.5rem; }
+}

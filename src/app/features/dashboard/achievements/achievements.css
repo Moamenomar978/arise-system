@@ -1,0 +1,12 @@
+.page-title { margin-bottom: 0.25rem; }
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.achievement-card { text-align: center; opacity: 0.45; }
+.achievement-card--earned { opacity: 1; box-shadow: 0 0 14px rgba(255, 215, 0, 0.25); }
+.achievement-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.achievement-title { font-size: 0.95rem; }
+.achievement-desc { font-size: 0.75rem; margin-top: 0.25rem; }

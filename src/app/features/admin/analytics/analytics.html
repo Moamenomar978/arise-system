@@ -1,0 +1,35 @@
+<h2 class="page-title">Analytics</h2>
+
+<div class="analytics-summary">
+  <div class="system-panel summary-card">
+    <div class="summary-value text-glow-blue font-display">{{ totalUsers() }}</div>
+    <div class="summary-label text-dim">Total Hunters</div>
+  </div>
+  <div class="system-panel summary-card">
+    <div class="summary-value text-glow-blue font-display">{{ avgLevel() }}</div>
+    <div class="summary-label text-dim">Average Level</div>
+  </div>
+  <div class="system-panel summary-card">
+    <div class="summary-value text-glow-gold font-display">{{ totalQuestsCompleted() }}</div>
+    <div class="summary-label text-dim">Quests Completed (all time)</div>
+  </div>
+  <div class="system-panel summary-card">
+    <div class="summary-value text-glow-gold font-display">{{ dailyCompletionRate() }}%</div>
+    <div class="summary-label text-dim">Today's Daily Completion Rate</div>
+  </div>
+</div>
+
+<div class="system-panel">
+  <div class="system-title">Level Distribution by Rank</div>
+  <div class="rank-chart">
+    @for (r of rankDistribution(); track r.rank) {
+      <div class="rank-chart-row">
+        <div class="rank-chart-label" [class]="'rank-' + r.rank">{{ r.rank }}-Rank</div>
+        <div class="sys-bar-track rank-chart-bar">
+          <div class="sys-bar-fill" [style.width.%]="r.percent"></div>
+        </div>
+        <div class="rank-chart-count font-display">{{ r.count }}</div>
+      </div>
+    }
+  </div>
+</div>

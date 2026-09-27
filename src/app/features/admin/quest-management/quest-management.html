@@ -1,0 +1,88 @@
+<h2 class="page-title">Quest Management</h2>
+
+<button class="btn-system" (click)="startCreate()">+ New Quest</button>
+
+@if (showForm()) {
+  <div class="system-panel quest-form">
+    <div class="quest-form-grid">
+      <div>
+        <label class="text-dim">Title</label>
+        <input class="form-control-system" [(ngModel)]="form.title">
+      </div>
+      <div>
+        <label class="text-dim">Type</label>
+        <select class="form-control-system" [(ngModel)]="form.type">
+          @for (t of questTypes; track t) { <option [value]="t">{{ t }}</option> }
+        </select>
+      </div>
+      <div class="quest-form-full">
+        <label class="text-dim">Description</label>
+        <input class="form-control-system" [(ngModel)]="form.description">
+      </div>
+      <div>
+        <label class="text-dim">Category (stat)</label>
+        <select class="form-control-system" [(ngModel)]="form.category">
+          @for (s of statTypes; track s) { <option [value]="s">{{ statLabels[s] }}</option> }
+        </select>
+      </div>
+      <div>
+        <label class="text-dim">Difficulty</label>
+        <select class="form-control-system" [(ngModel)]="form.difficulty">
+          @for (r of ranks; track r) { <option [value]="r">{{ r }}-Rank</option> }
+        </select>
+      </div>
+      <div>
+        <label class="text-dim">XP Reward</label>
+        <input class="form-control-system" type="number" [(ngModel)]="form.xpReward">
+      </div>
+      <div>
+        <label class="text-dim">Gold Reward</label>
+        <input class="form-control-system" type="number" [(ngModel)]="form.goldReward">
+      </div>
+      <div>
+        <label class="text-dim">Bonus Stat Points</label>
+        <input class="form-control-system" type="number" [(ngModel)]="form.statPointReward">
+      </div>
+      <div class="quest-form-check">
+        <label class="text-dim">
+          <input type="checkbox" [(ngModel)]="form.isRepeatable"> Repeatable
+        </label>
+      </div>
+    </div>
+    <button class="btn-system btn-system-gold" (click)="save()">Save Quest</button>
+    <button class="btn-system" (click)="showForm.set(false)">Cancel</button>
+  </div>
+}
+
+<div class="system-panel table-wrap quest-table-panel">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Difficulty</th>
+        <th>XP / Gold</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (q of questService.templates(); track q.id) {
+        <tr [class.row-banned]="!q.active">
+          <td>{{ q.title }}</td>
+          <td>{{ q.type }}</td>
+          <td>{{ statLabels[q.category] }}</td>
+          <td>{{ q.difficulty }}-Rank</td>
+          <td>{{ q.xpReward }} / {{ q.goldReward }}</td>
+          <td>{{ q.active ? 'Yes' : 'No' }}</td>
+          <td class="admin-actions">
+            <button class="btn-system" (click)="startEdit(q)">Edit</button>
+            <button class="btn-system" (click)="toggleActive(q)">{{ q.active ? 'Disable' : 'Enable' }}</button>
+            <button class="btn-system btn-system-danger" (click)="remove(q.id)">Delete</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

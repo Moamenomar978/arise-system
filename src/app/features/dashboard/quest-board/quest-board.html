@@ -1,0 +1,34 @@
+<h2 class="page-title">Quest Board</h2>
+
+<section class="quest-section">
+  <div class="system-title">Weekly Quests</div>
+  <div class="quest-grid">
+    @for (q of weekly(); track q.id) {
+      <app-quest-card [quest]="q" [completed]="q.completed" (complete)="complete(q.id)" />
+    } @empty {
+      <p class="text-dim">No weekly quests available right now.</p>
+    }
+  </div>
+</section>
+
+<section class="quest-section">
+  <div class="system-title">Special Quests</div>
+  <div class="quest-grid">
+    @for (q of special(); track q.id) {
+      <app-quest-card [quest]="q" [completed]="q.completed" (complete)="complete(q.id)" />
+    } @empty {
+      <p class="text-dim">No special quests available right now.</p>
+    }
+  </div>
+</section>
+
+<section class="quest-section">
+  <div class="system-title">Story Quests</div>
+  <div class="quest-grid">
+    @for (q of story(); track q.id) {
+      <app-quest-card [quest]="q" [completed]="q.completed" (complete)="complete(q.id)" />
+    } @empty {
+      <p class="text-dim">No story quests available right now.</p>
+    }
+  </div>
+</section>

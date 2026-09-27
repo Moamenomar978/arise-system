@@ -1,0 +1,15 @@
+@if (player(); as p) {
+  <h2 class="page-title">Stat Allocation</h2>
+  <p class="text-dim">Available Stat Points: <span class="text-glow-blue font-display">{{ p.availableStatPoints }}</span></p>
+
+  <div class="system-panel stat-panel">
+    @for (key of statKeys; track key) {
+      <div class="stat-row">
+        <div class="stat-row-label">{{ statLabels[key] }}</div>
+        <div class="stat-row-bar"><app-stat-bar [value]="p.stats[key]" [max]="100" /></div>
+        <div class="stat-row-value font-display">{{ p.stats[key] }}</div>
+        <button class="btn-system" [disabled]="p.availableStatPoints < 1" (click)="allocate(key)">+1</button>
+      </div>
+    }
+  </div>
+}

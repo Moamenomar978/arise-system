@@ -1,0 +1,10 @@
+<h2 class="page-title">Daily Quests</h2>
+<p class="text-dim">
+  {{ completedCount() }} / {{ quests().length }} complete today. Finish them all before midnight to avoid a penalty.
+</p>
+
+<div class="quest-grid">
+  @for (q of quests(); track q.id) {
+    <app-quest-card [quest]="q" [completed]="q.completed" (complete)="complete(q.id)" />
+  }
+</div>

@@ -1,0 +1,12 @@
+<div class="xp-ring">
+  <svg viewBox="0 0 120 120" width="120" height="120">
+    <circle cx="60" cy="60" [attr.r]="radius" class="xp-ring-track" />
+    <circle cx="60" cy="60" [attr.r]="radius" class="xp-ring-fill"
+            [attr.stroke-dasharray]="circumference"
+            [attr.stroke-dashoffset]="dashOffset()" />
+  </svg>
+  <div class="xp-ring-center">
+    <div class="xp-ring-level">{{ level() }}</div>
+    <div class="xp-ring-tag">LEVEL</div>
+  </div>
+</div>

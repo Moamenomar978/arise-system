@@ -1,0 +1,203 @@
+/* ==========================================================
+   ARISE — System Theme
+   ========================================================== */
+
+:root {
+  --sys-bg: #0a0a0f;
+  --sys-bg-panel: #0d1b2a;
+  --sys-bg-panel-2: #101c2c;
+  --sys-border: #1c3350;
+  --sys-blue: #00d4ff;
+  --sys-blue-dim: #0891b2;
+  --sys-purple: #7b2fff;
+  --sys-gold: #ffd700;
+  --sys-red: #ff3b5c;
+  --sys-green: #2ee6a6;
+  --sys-text: #dce8f5;
+  --sys-text-dim: #7d93ad;
+
+  --rank-e: #8a94a3;
+  --rank-d: #2ee68a;
+  --rank-c: #2e9be6;
+  --rank-b: #a24fff;
+  --rank-a: #ffd700;
+  --rank-s: #ff3b5c;
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--sys-bg);
+  color: var(--sys-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(0, 212, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(123, 47, 255, 0.06), transparent 40%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+a { color: var(--sys-blue); }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--sys-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--sys-border);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--sys-blue-dim); }
+
+/* ---------- Panels / System card ---------- */
+.system-panel {
+  background: linear-gradient(180deg, var(--sys-bg-panel), var(--sys-bg-panel-2));
+  border: 1px solid var(--sys-border);
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.05), 0 8px 24px rgba(0, 0, 0, 0.5);
+  padding: 1.25rem;
+}
+
+.system-panel--glow {
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.04);
+}
+
+.system-title {
+  font-family: var(--font-display);
+  color: var(--sys-blue);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.system-title::before { content: '◆'; font-size: 0.7rem; }
+
+/* ---------- Buttons ---------- */
+.btn-system {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.18), rgba(0, 212, 255, 0.05));
+  border: 1px solid var(--sys-blue-dim);
+  color: var(--sys-blue);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+.btn-system:hover {
+  background: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+  color: #eafcff;
+}
+.btn-system:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-system-danger {
+  border-color: var(--sys-red);
+  color: var(--sys-red);
+  background: rgba(255, 59, 92, 0.08);
+}
+.btn-system-danger:hover {
+  background: rgba(255, 59, 92, 0.2);
+  box-shadow: 0 0 12px rgba(255, 59, 92, 0.4);
+}
+
+.btn-system-gold {
+  border-color: var(--sys-gold);
+  color: var(--sys-gold);
+  background: rgba(255, 215, 0, 0.08);
+}
+.btn-system-gold:hover {
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+/* ---------- Form controls ---------- */
+.form-control-system {
+  background: #06090f;
+  border: 1px solid var(--sys-border);
+  color: var(--sys-text);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  width: 100%;
+}
+.form-control-system:focus {
+  outline: none;
+  border-color: var(--sys-blue);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.35);
+}
+
+/* ---------- Rank colors ---------- */
+.rank-E { color: var(--rank-e); }
+.rank-D { color: var(--rank-d); }
+.rank-C { color: var(--rank-c); }
+.rank-B { color: var(--rank-b); }
+.rank-A { color: var(--rank-a); }
+.rank-S { color: var(--rank-s); text-shadow: 0 0 10px var(--rank-s); }
+
+/* ---------- Progress bars ---------- */
+.sys-bar-track {
+  background: #06090f;
+  border: 1px solid var(--sys-border);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 14px;
+  position: relative;
+}
+.sys-bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+  background: linear-gradient(90deg, var(--sys-blue-dim), var(--sys-blue));
+}
+.sys-bar-fill--hp { background: linear-gradient(90deg, #8a1229, var(--sys-red)); }
+.sys-bar-fill--xp { background: linear-gradient(90deg, #6b1fbf, var(--sys-purple)); }
+
+/* ---------- System alert / notification toast ---------- */
+.system-alert {
+  font-family: var(--font-display);
+  background: rgba(6, 12, 20, 0.92);
+  border: 1px solid var(--sys-blue);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  color: var(--sys-blue);
+  padding: 0.9rem 1.2rem;
+  border-radius: 4px;
+  animation: sys-alert-in 0.25s ease-out;
+}
+@keyframes sys-alert-in {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ---------- Level up full-screen flash ---------- */
+@keyframes sys-flash {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes sys-scale-in {
+  0% { transform: scale(0.7); opacity: 0; }
+  20% { transform: scale(1.05); opacity: 1; }
+  30% { transform: scale(1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.text-dim { color: var(--sys-text-dim); }
+.text-glow-blue { color: var(--sys-blue); text-shadow: 0 0 10px rgba(0, 212, 255, 0.6); }
+.text-glow-gold { color: var(--sys-gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }

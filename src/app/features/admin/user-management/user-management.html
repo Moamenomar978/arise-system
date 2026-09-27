@@ -1,0 +1,41 @@
+<h2 class="page-title">User Management</h2>
+
+<div class="system-panel table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Hunter</th>
+        <th>Email</th>
+        <th>Level</th>
+        <th>Rank</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (u of users(); track u.id) {
+        <tr [class.row-banned]="u.banned">
+          <td>{{ u.hunterName }}</td>
+          <td class="text-dim">{{ u.email }}</td>
+          <td>{{ playerFor(u.id).level }}</td>
+          <td><app-rank-badge [rank]="playerFor(u.id).rank" size="sm" /></td>
+          <td>{{ u.role }}</td>
+          <td>{{ u.banned ? 'Banned' : 'Active' }}</td>
+          <td class="admin-actions">
+            <button class="btn-system" (click)="toggleRole(u)" [disabled]="u.id === currentAdminId()">
+              {{ u.role === Role.ADMIN ? 'Demote' : 'Promote' }}
+            </button>
+            <button class="btn-system btn-system-gold" (click)="resetProgress(u.id)">Reset</button>
+            <button class="btn-system" (click)="toggleBan(u)" [disabled]="u.id === currentAdminId()">
+              {{ u.banned ? 'Unban' : 'Ban' }}
+            </button>
+            <button class="btn-system btn-system-danger" (click)="deleteUser(u.id)" [disabled]="u.id === currentAdminId()">Delete</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="7" class="text-dim">No hunters registered yet.</td></tr>
+      }
+    </tbody>
+  </table>
+</div>

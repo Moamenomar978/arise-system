@@ -1,0 +1,43 @@
+.alert-stack {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2000;
+  max-width: 340px;
+}
+
+.system-alert { cursor: pointer; font-size: 0.85rem; }
+.system-alert--danger { border-color: var(--sys-red); color: var(--sys-red); box-shadow: 0 0 20px rgba(255, 59, 92, 0.5); }
+.system-alert--success { border-color: var(--sys-green); color: var(--sys-green); box-shadow: 0 0 20px rgba(46, 230, 166, 0.5); }
+
+.level-up-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15), rgba(0, 0, 0, 0.75));
+  animation: sys-flash 2.2s ease forwards;
+  pointer-events: none;
+}
+.level-up-overlay--rank {
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.2), rgba(0, 0, 0, 0.75));
+}
+
+.level-up-content {
+  text-align: center;
+  font-family: var(--font-display);
+  animation: sys-scale-in 2.2s ease forwards;
+}
+.level-up-label { color: var(--sys-blue); letter-spacing: 4px; font-size: 1rem; }
+.level-up-main {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #eafcff;
+  text-shadow: 0 0 30px var(--sys-blue), 0 0 60px var(--sys-blue);
+}
+.level-up-sub { color: var(--sys-gold); font-size: 1.2rem; letter-spacing: 2px; margin-top: 0.5rem; }

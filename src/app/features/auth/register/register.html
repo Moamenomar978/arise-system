@@ -1,0 +1,28 @@
+<div class="auth-page">
+  <form class="auth-card system-panel system-panel--glow" (ngSubmit)="submit()">
+    <div class="auth-brand font-display text-glow-blue">ARISE</div>
+    <div class="auth-subtitle text-dim">Hunter Registration</div>
+
+    @if (error(); as err) {
+      <div class="auth-error">{{ err }}</div>
+    }
+
+    <label class="auth-label">Hunter Name</label>
+    <input class="form-control-system" type="text" name="hunterName" [(ngModel)]="hunterName" placeholder="What shall the System call you?">
+
+    <label class="auth-label">Email</label>
+    <input class="form-control-system" type="email" name="email" [(ngModel)]="email" required>
+
+    <label class="auth-label">Password</label>
+    <input class="form-control-system" type="password" name="password" [(ngModel)]="password" required>
+
+    <label class="auth-label">Confirm Password</label>
+    <input class="form-control-system" type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+
+    <button class="btn-system auth-submit" type="submit">Awaken</button>
+
+    <div class="auth-footer text-dim">
+      Already a Hunter? <a routerLink="/login">Log in</a>
+    </div>
+  </form>
+</div>

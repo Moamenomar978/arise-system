@@ -1,0 +1,25 @@
+<div class="quest-card" [class.quest-card--completed]="completed()">
+  <div class="quest-card-top">
+    <app-rank-badge [rank]="quest().difficulty" size="sm" />
+    <span class="quest-card-category">{{ statLabels[quest().category] }}</span>
+  </div>
+
+  <div class="quest-card-title">{{ quest().title }}</div>
+  <div class="quest-card-desc text-dim">{{ quest().description }}</div>
+
+  <div class="quest-card-footer">
+    <div class="quest-card-rewards">
+      <span class="text-glow-blue">+{{ quest().xpReward }} XP</span>
+      <span class="text-glow-gold">+{{ quest().goldReward }} Gold</span>
+      @if (quest().statPointReward) {
+        <span class="text-dim">+{{ quest().statPointReward }} SP</span>
+      }
+    </div>
+
+    @if (completed()) {
+      <button class="btn-system" disabled>Completed</button>
+    } @else {
+      <button class="btn-system" (click)="complete.emit()">Complete</button>
+    }
+  </div>
+</div>

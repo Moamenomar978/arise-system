@@ -1,0 +1,14 @@
+.shop-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.page-title { margin-bottom: 0.25rem; }
+.shop-gold { font-size: 1.3rem; }
+.shop-form { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1rem; max-width: 400px; }
+.shop-form button { margin-top: 0.75rem; align-self: flex-start; }
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.shop-item-desc { font-size: 0.85rem; margin: 0.35rem 0; }
+.shop-item-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; }
+.shop-item-actions { display: flex; gap: 0.4rem; }

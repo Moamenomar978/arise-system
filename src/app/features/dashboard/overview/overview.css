@@ -1,0 +1,41 @@
+.page-title { margin-bottom: 1.25rem; color: var(--sys-text); }
+
+.announcements-banner { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+.announcement-banner-item {
+  color: var(--sys-blue);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 900px) {
+  .overview-grid { grid-template-columns: 1fr; }
+}
+
+.overview-main-top {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.overview-identity { display: flex; flex-direction: column; gap: 0.35rem; }
+.overview-hunter-name { font-size: 1.3rem; }
+.overview-streak { font-size: 0.85rem; }
+
+.overview-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  text-align: center;
+  border-top: 1px solid var(--sys-border);
+  padding-top: 1rem;
+}
+
+.stats-list { display: flex; flex-direction: column; gap: 0.65rem; }
+.stats-hint { font-size: 0.8rem; margin-top: 1rem; margin-bottom: 0; }

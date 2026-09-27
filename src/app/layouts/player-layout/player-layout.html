@@ -1,0 +1,35 @@
+<div class="shell">
+  <aside class="sidebar system-panel">
+    <div class="sidebar-brand font-display text-glow-blue">ARISE</div>
+
+    @if (player(); as p) {
+      <div class="sidebar-player">
+        <div class="sidebar-hunter-name">{{ user()?.hunterName }}</div>
+        <app-rank-badge [rank]="p.rank" size="sm" />
+        <div class="sidebar-level">Level {{ p.level }}</div>
+        <app-stat-bar [value]="p.currentXP" [max]="p.xpToNextLevel" variant="xp" [showNumbers]="false" />
+        <app-stat-bar label="HP" [value]="p.hp" [max]="p.maxHp" variant="hp" />
+        <div class="sidebar-gold">💰 {{ p.gold }} Gold</div>
+      </div>
+    }
+
+    <nav class="sidebar-nav">
+      <a routerLink="overview" routerLinkActive="active">Overview</a>
+      <a routerLink="daily-quests" routerLinkActive="active">Daily Quests</a>
+      <a routerLink="quest-board" routerLinkActive="active">Quest Board</a>
+      <a routerLink="stat-allocation" routerLinkActive="active">Stat Allocation</a>
+      <a routerLink="achievements" routerLinkActive="active">Achievements</a>
+      <a routerLink="shop" routerLinkActive="active">Shop</a>
+      <a routerLink="history" routerLinkActive="active">History</a>
+      @if (auth.isAdmin()) {
+        <a routerLink="/admin" class="sidebar-admin-link">Admin Panel</a>
+      }
+    </nav>
+
+    <button class="btn-system btn-system-danger sidebar-logout" (click)="logout()">Log Out</button>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

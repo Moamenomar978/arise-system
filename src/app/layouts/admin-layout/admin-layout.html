@@ -1,0 +1,20 @@
+<div class="shell">
+  <aside class="sidebar system-panel">
+    <div class="sidebar-brand font-display text-glow-gold">ARISE // ADMIN</div>
+    <div class="sidebar-admin-name text-dim">{{ user()?.hunterName }}</div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="user-management" routerLinkActive="active">User Management</a>
+      <a routerLink="quest-management" routerLinkActive="active">Quest Management</a>
+      <a routerLink="analytics" routerLinkActive="active">Analytics</a>
+      <a routerLink="announcements" routerLinkActive="active">Announcements</a>
+      <a routerLink="/dashboard" class="sidebar-back-link">Back to Dashboard</a>
+    </nav>
+
+    <button class="btn-system btn-system-danger sidebar-logout" (click)="logout()">Log Out</button>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
